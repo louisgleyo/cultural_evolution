@@ -29,7 +29,7 @@ contains_bad_word <- function(headline_str){
   return(FALSE)
 }
 
-## Apply the contain_bad_word function to a column in
+## Apply the contain_bad_word function to a column of headlines
 ## Param : headline_str : a column of string
 ## Result : A vector of booleans
 contains_bad_word_global <-function(headline_column){
@@ -47,6 +47,7 @@ headlines_group   = headlines %>%
 ## Mutation of headline_group, to which we add the
 ## calculation of the click_rate and the variable 
 ## bad_word which is TRUE if the title contains a swear word and FALSE otherwise
+## Nota bene : This line may take several minutes to execute
 headlines_group_2 = headlines_group %>% 
   mutate(click_rate = clicks/impressions, bad_word = contains_bad_word_global(headline))
 
